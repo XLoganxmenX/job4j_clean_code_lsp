@@ -11,9 +11,9 @@ class PrinterTest {
     @Test
     public void whenPrintFirstLevelMenu() {
         Menu menu = new SimpleMenu();
-        ActionDelegate STUB_ACTION = System.out::println;
-        menu.add(Menu.ROOT, "Сходить в магазин", STUB_ACTION);
-        menu.add(Menu.ROOT, "Покормить собаку", STUB_ACTION);
+        ActionDelegate stubAction = System.out::println;
+        menu.add(Menu.ROOT, "Сходить в магазин", stubAction);
+        menu.add(Menu.ROOT, "Покормить собаку", stubAction);
         Printer printer = new Printer();
         String expectedOutput = "Сходить в магазин" + System.lineSeparator()
                 + "Покормить собаку" + System.lineSeparator();
@@ -28,12 +28,12 @@ class PrinterTest {
     @Test
     public void whenPrintMultiLevelMenu() {
         Menu menu = new SimpleMenu();
-        ActionDelegate STUB_ACTION = System.out::println;
-        menu.add(Menu.ROOT, "Сходить в магазин", STUB_ACTION);
-        menu.add(Menu.ROOT, "Покормить собаку", STUB_ACTION);
-        menu.add("Сходить в магазин", "Купить продукты", STUB_ACTION);
-        menu.add("Купить продукты", "Купить хлеб", STUB_ACTION);
-        menu.add("Купить продукты", "Купить молоко", STUB_ACTION);
+        ActionDelegate stubAction = System.out::println;
+        menu.add(Menu.ROOT, "Сходить в магазин", stubAction);
+        menu.add(Menu.ROOT, "Покормить собаку", stubAction);
+        menu.add("Сходить в магазин", "Купить продукты", stubAction);
+        menu.add("Купить продукты", "Купить хлеб", stubAction);
+        menu.add("Купить продукты", "Купить молоко", stubAction);
         Printer printer = new Printer();
         String expectedOutput = "Сходить в магазин" + System.lineSeparator()
                 + "--Купить продукты" + System.lineSeparator()

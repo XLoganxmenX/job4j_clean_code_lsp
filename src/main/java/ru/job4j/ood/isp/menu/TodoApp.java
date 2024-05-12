@@ -10,7 +10,7 @@ public class TodoApp {
     private static final String RUN_ACTION_TEXT_MENU = "3. Вызвать действие меню";
     private static final String VIEW_ALL_TEXT_MENU = "4. Вывести меню в консоль";
     private static final String EXIT_TEXT_MENU = "5. Закрыть приложение";
-    private static final ActionDelegate DEFAULT_ACTION = ()-> System.out.println("Some action");
+    private static final ActionDelegate DEFAULT_ACTION = () -> System.out.println("Some action");
     private final Menu backMenu;
     private final Printer printer;
 

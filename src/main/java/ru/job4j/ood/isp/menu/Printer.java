@@ -3,8 +3,9 @@ package ru.job4j.ood.isp.menu;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Printer implements MenuPrinter{
-    private static final String rowLevel = "--";
+public class Printer implements MenuPrinter {
+    private static final String ROW_LEVEL = "--";
+
     @Override
     public void print(Menu menu) {
         for (Menu.MenuItemInfo menuItemInfo : menu) {
@@ -26,7 +27,7 @@ public class Printer implements MenuPrinter{
         int matchCount = 0;
         while (matcher.find()) {
             matchCount++;
-            String replaceString = matchCount == 1 ? "" : rowLevel;
+            String replaceString = matchCount == 1 ? "" : ROW_LEVEL;
             matcher.appendReplacement(stringBuilder, replaceString);
         }
         matcher.appendTail(stringBuilder);
