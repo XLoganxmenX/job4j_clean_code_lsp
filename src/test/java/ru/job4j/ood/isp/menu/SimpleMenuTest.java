@@ -3,6 +3,8 @@ package ru.job4j.ood.isp.menu;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -29,5 +31,40 @@ public class SimpleMenuTest {
                 "Покормить собаку", List.of(), STUB_ACTION, "2."))
                 .isEqualTo(menu.select("Покормить собаку").get());
         menu.forEach(i -> System.out.println(i.getNumber() + i.getName()));
+    }
+
+    @Test
+    public void whenSelectInEmptyMenuAndGetThenThrowException() {
+        Menu menu = new SimpleMenu();
+
+        assertThatThrownBy(() -> menu.select("Сходить в магазин").get())
+                .isInstanceOf(NoSuchElementException.class);
+    }
+
+    @Test
+    public void whenSelectNotExistMenuThenSelectEmpty() {
+        Menu menu = new SimpleMenu();
+        menu.add(Menu.ROOT, "Покормить собаку", STUB_ACTION);
+        Optional<Menu.MenuItemInfo> result = menu.select("Сходить в магазин");
+
+        assertThat(result).isNotPresent().isEmpty();
+    }
+
+    @Test
+    public void whenSelectSimilarWordMenuThenSelectEmpty() {
+        Menu menu = new SimpleMenu();
+        menu.add(Menu.ROOT, "Покормить собаку", STUB_ACTION);
+        Optional<Menu.MenuItemInfo> result = menu.select("Покормить соба");
+
+        assertThat(result).isNotPresent().isEmpty();
+    }
+
+    @Test
+    public void whenSelectMenuAndGetActionThenSame() {
+        Menu menu = new SimpleMenu();
+        menu.add(Menu.ROOT, "Покормить собаку", STUB_ACTION);
+        ActionDelegate result = menu.select("Покормить собаку").get().getActionDelegate();
+
+        assertThat(result).isEqualTo(STUB_ACTION);
     }
 }

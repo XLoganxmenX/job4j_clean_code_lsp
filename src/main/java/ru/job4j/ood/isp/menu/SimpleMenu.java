@@ -58,9 +58,10 @@ public class SimpleMenu implements Menu {
         ItemInfo desiredItem = null;
         DFSIterator iterator = new DFSIterator();
         while (iterator.hasNext()) {
-            desiredItem = iterator.next();
-            String itemInfoName = desiredItem.menuItem.getName();
+            ItemInfo itemInfo = iterator.next();
+            String itemInfoName = itemInfo.menuItem.getName();
             if (name.equals(itemInfoName)) {
+                desiredItem = itemInfo;
                 break;
             }
         }
