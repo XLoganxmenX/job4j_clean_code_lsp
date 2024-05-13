@@ -12,11 +12,11 @@ public class TodoApp {
     private static final String EXIT_TEXT_MENU = "5. Закрыть приложение";
     private static final ActionDelegate DEFAULT_ACTION = () -> System.out.println("Some action");
     private final Menu backMenu;
-    private final Printer printer;
+    private final MenuPrinter printer;
 
     public TodoApp() {
         this.backMenu = new SimpleMenu();
-        this.printer = new Printer();
+        this.printer = new NumberMenuPrinter();
     }
 
     public void run() {
