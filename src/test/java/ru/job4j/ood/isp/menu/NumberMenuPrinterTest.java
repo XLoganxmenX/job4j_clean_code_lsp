@@ -36,11 +36,11 @@ class NumberMenuPrinterTest {
         menu.add("Купить продукты", "Купить хлеб", stubAction);
         menu.add("Купить продукты", "Купить молоко", stubAction);
         MenuPrinter printer = new NumberMenuPrinter();
-        String expectedOutput = "1.Сходить в магазин" + System.lineSeparator()
-                + "1.1.Купить продукты" + System.lineSeparator()
-                + "1.1.1.Купить хлеб" + System.lineSeparator()
-                + "1.1.2.Купить молоко" + System.lineSeparator()
-                + "2.Покормить собаку" + System.lineSeparator();
+        String expectedOutput = "--1.Сходить в магазин" + System.lineSeparator()
+                + "----1.1.Купить продукты" + System.lineSeparator()
+                + "------1.1.1.Купить хлеб" + System.lineSeparator()
+                + "------1.1.2.Купить молоко" + System.lineSeparator()
+                + "--2.Покормить собаку" + System.lineSeparator();
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
 

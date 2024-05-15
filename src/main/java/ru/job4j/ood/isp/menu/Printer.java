@@ -4,7 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Printer implements MenuPrinter {
-    private static final String ROW_LEVEL = "--";
+    public static final String ROW_LEVEL = "--";
 
     @Override
     public void print(Menu menu) {
