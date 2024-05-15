@@ -16,8 +16,8 @@ class NumberMenuPrinterTest {
         menu.add(Menu.ROOT, "Сходить в магазин", stubAction);
         menu.add(Menu.ROOT, "Покормить собаку", stubAction);
         MenuPrinter printer = new NumberMenuPrinter();
-        String expectedOutput = "1.Сходить в магазин" + System.lineSeparator()
-                                + "2.Покормить собаку" + System.lineSeparator();
+        String expectedOutput = "--1.Сходить в магазин" + System.lineSeparator()
+                                + "--2.Покормить собаку" + System.lineSeparator();
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
 
